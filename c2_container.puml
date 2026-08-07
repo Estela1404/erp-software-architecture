@@ -1,0 +1,15 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(admin, "Administrador de Compras")
+
+System_Boundary(erp, "Sistema ERP") {
+    Container(spa, "Single-Page Application", "JavaScript, React", "La interfaz de usuario en el navegador.")
+    Container(api, "API Monolítica", "Java, Spring Boot", "Maneja toda la lógica de negocio.")
+    ContainerDb(db, "Base de Datos", "PostgreSQL", "Almacena todos los datos del ERP.")
+}
+
+Rel(admin, spa, "Usa", "HTTPS")
+Rel(spa, api, "Hace llamadas a la API", "HTTPS/JSON")
+Rel(api, db, "Lee y escribe", "JDBC")
+@enduml

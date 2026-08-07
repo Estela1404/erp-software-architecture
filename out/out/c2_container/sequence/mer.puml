@@ -1,0 +1,26 @@
+@startuml
+entity "Producto" {
+  * id_producto : integer <<PK>>
+  --
+  * nombre : varchar(100)
+  descripcion : text
+  unidad_medida : varchar(20)
+}
+
+entity "Proveedor" {
+  * id_proveedor : integer <<PK>>
+  --
+  * razon_social : varchar(150)
+  contacto : varchar(100)
+}
+
+entity "Producto_Proveedor" {
+  * id_producto : integer <<FK>>
+  * id_proveedor : integer <<FK>>
+  --
+  precio_unitario : decimal
+}
+
+Producto "1" -- "0..*" Producto_Proveedor
+Proveedor "1" -- "0..*" Producto_Proveedor
+@enduml

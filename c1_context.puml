@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Gestor de Inventario" as gestor
+actor "Administrador de Compras" as admin
+
+rectangle "Sistema ERP" {
+  usecase "Módulo de Inventario / Compras" as erp
+}
+
+rectangle "Sistema Contable Externo" as accounting
+
+gestor --> erp : Registra y consulta productos
+admin --> erp : Registra proveedores y asocia productos
+erp --> accounting : Sincroniza transacciones y asientos contables
+@enduml
