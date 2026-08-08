@@ -1,5 +1,5 @@
 ---
-date: Agosto 2026
+date: 07 Agosto 2026
 title: Arquitectura de Software - Sistema ERP
 ---
 
